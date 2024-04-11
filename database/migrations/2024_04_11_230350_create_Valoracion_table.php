@@ -13,12 +13,14 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('Renta_Estado', function (Blueprint $table) {
-            $table->increments('renta_estado_id');
-            $table->string('renta_estado', 15);
+        Schema::create('Valoracion', function (Blueprint $table) {
+            $table->increments('valoracion_id');
+            $table->tinyInteger('calificacion');
+            $table->string('comentario', 200)->nullable();
+            $table->text('imagenes_url')->nullable();
             $table->dateTime('fecha_registro')->nullable()->useCurrent();
 
-            $table->primary(['renta_estado_id'], 'pk__renta_es__fa2601024cf47852');
+            $table->primary(['valoracion_id'], 'pk__valoraci__bf622718f30c5d4c');
         });
     }
 
@@ -29,6 +31,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('Renta_Estado');
+        Schema::dropIfExists('Valoracion');
     }
 };

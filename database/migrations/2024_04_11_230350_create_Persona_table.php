@@ -22,7 +22,7 @@ return new class extends Migration
             $table->string('correo', 60);
             $table->string('telefono', 10)->nullable();
 
-            $table->primary(['persona_id'], 'pk__persona__189f813a077524a7');
+            $table->primary(['persona_id'], 'pk__persona__189f813a7db38234');
         });
     }
 

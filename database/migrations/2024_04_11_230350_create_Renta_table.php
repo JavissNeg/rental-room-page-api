@@ -21,10 +21,10 @@ return new class extends Migration
             $table->dateTime('fecha_registro')->nullable()->useCurrent();
             $table->integer('renta_estado_id');
             $table->integer('inmueble_id');
-            $table->integer('arrendador_id');
+            $table->integer('arrendatario_id');
             $table->integer('valoracion_id');
 
-            $table->primary(['renta_id'], 'pk__renta__1c43f424d9a8787f');
+            $table->primary(['renta_id'], 'pk__renta__1c43f424c40974e3');
         });
     }
 

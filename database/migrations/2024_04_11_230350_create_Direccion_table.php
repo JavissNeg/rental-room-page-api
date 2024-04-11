@@ -22,7 +22,7 @@ return new class extends Migration
             $table->integer('numero_interior')->nullable();
             $table->integer('ciudad_id');
 
-            $table->primary(['direccion_id'], 'pk__direccio__3ce1758cf0fbab63');
+            $table->primary(['direccion_id'], 'pk__direccio__3ce1758c6c3e808b');
         });
     }
 

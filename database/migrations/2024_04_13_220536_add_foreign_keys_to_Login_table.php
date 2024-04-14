@@ -14,7 +14,7 @@ return new class extends Migration
     public function up()
     {
         Schema::table('Login', function (Blueprint $table) {
-            $table->foreign(['persona_id'], 'fk_Login_Persona')->references(['persona_id'])->on('Persona')->onUpdate('no action')->onDelete('no action');
+            $table->foreign(['person_id'], 'fk_Login_Person')->references(['person_id'])->on('Person')->onUpdate('no action')->onDelete('no action');
         });
     }
 
@@ -26,7 +26,7 @@ return new class extends Migration
     public function down()
     {
         Schema::table('Login', function (Blueprint $table) {
-            $table->dropForeign('fk_Login_Persona');
+            $table->dropForeign('fk_Login_Person');
         });
     }
 };

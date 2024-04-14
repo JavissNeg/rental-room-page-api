@@ -13,12 +13,10 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('Renta_Estado', function (Blueprint $table) {
-            $table->increments('renta_estado_id');
-            $table->string('renta_estado', 15);
-            $table->dateTime('fecha_registro')->nullable()->useCurrent();
+        Schema::create('Property_Type', function (Blueprint $table) {
+            $table->string('property_type_id', 30);
 
-            $table->primary(['renta_estado_id'], 'pk__renta_es__fa2601027f4f7b32');
+            $table->primary(['property_type_id'], 'pk__property__2e6fbfabd2287382');
         });
     }
 
@@ -29,6 +27,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('Renta_Estado');
+        Schema::dropIfExists('Property_Type');
     }
 };

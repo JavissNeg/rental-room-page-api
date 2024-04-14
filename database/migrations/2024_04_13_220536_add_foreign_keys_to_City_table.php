@@ -13,12 +13,8 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('Ciudad', function (Blueprint $table) {
-            $table->increments('ciudad_id');
-            $table->string('ciudad', 30);
-            $table->integer('pais_id');
-            
-            $table->primary(['ciudad_id'], 'pk__ciudad__aa0adb67589c593e');
+        Schema::table('City', function (Blueprint $table) {
+            $table->foreign(['state_id'], 'fk_City_State')->references(['state_id'])->on('State')->onUpdate('no action')->onDelete('no action');
         });
     }
 
@@ -29,6 +25,8 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('Ciudad');
+        Schema::table('City', function (Blueprint $table) {
+            $table->dropForeign('fk_City_State');
+        });
     }
 };

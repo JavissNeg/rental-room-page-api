@@ -13,8 +13,12 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::table('Direccion', function (Blueprint $table) {
-            $table->foreign(['ciudad_id'], 'fk_Direccion_Ciudad')->references(['ciudad_id'])->on('Ciudad')->onUpdate('no action')->onDelete('no action');
+        Schema::create('Currency', function (Blueprint $table) {
+            $table->string('currency_id', 10);
+            $table->string('symbol', 1);
+            $table->decimal('exchange_rate', 4);
+
+            $table->primary(['currency_id'], 'pk__currency__c7f543d3d6bfc4f0');
         });
     }
 
@@ -25,8 +29,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::table('Direccion', function (Blueprint $table) {
-            $table->dropForeign('fk_Direccion_Ciudad');
-        });
+        Schema::dropIfExists('Currency');
     }
 };

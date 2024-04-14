@@ -13,10 +13,8 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('Periodo', function (Blueprint $table) {
-            $table->string('periodo_id', 5);
-
-            $table->primary(['periodo_id'], 'pk__periodo__c736707cbcf26726');
+        Schema::table('Address', function (Blueprint $table) {
+            $table->foreign(['city_id'], 'fk_Address_City')->references(['city_id'])->on('City')->onUpdate('no action')->onDelete('no action');
         });
     }
 
@@ -27,6 +25,8 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('Periodo');
+        Schema::table('Address', function (Blueprint $table) {
+            $table->dropForeign('fk_Address_City');
+        });
     }
 };

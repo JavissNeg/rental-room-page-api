@@ -18,12 +18,12 @@ return new class extends Migration
             $table->decimal('total', 15);
             $table->dateTime('start_date');
             $table->dateTime('end_date');
-            $table->integer('rental_status_id');
+            $table->string('rental_status_id', 15);
             $table->integer('property_id');
             $table->integer('lessee_id');
             $table->integer('evaluation_id');
             $table->timestamps();
-
+            
             $table->primary(['rental_id'], 'pk__rental__67db611bb1838534');
         });
     }

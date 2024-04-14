@@ -14,11 +14,11 @@ return new class extends Migration
     public function up()
     {
         Schema::create('Rental_Status', function (Blueprint $table) {
-            $table->increments('rental_status_id');
-            $table->string('rental_status', 15);
+            $table->string('rental_status_id', 15);
+            $table->string('description', 30);
             $table->timestamps();
             
-            $table->primary(['rental_status_id'], 'pk__rental_s__5698bfd9746651b3');
+            $table->primary('rental_status_id', 'pk__rental_s__5698bfd9746651b3');
         });
     }
 

@@ -17,7 +17,7 @@ class Address extends Model
         'zip_code', 
         'street_number', 
         'apartment_number',
-        'city_id'
+        'city_id',
     ];
 
 }

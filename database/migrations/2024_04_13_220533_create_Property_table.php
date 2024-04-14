@@ -15,13 +15,14 @@ return new class extends Migration
     {
         Schema::create('Property', function (Blueprint $table) {
             $table->increments('property_id');
+            $table->string('name', 100);
             $table->string('description', 800);
             $table->tinyInteger('bedrooms_number');
             $table->tinyInteger('bathrooms_number');
             $table->text('image_url');
             $table->decimal('price', 15);
-            $table->boolean('verified')->default(false);
-            $table->boolean('avaible')->default(true);
+            $table->boolean('isVerified')->default(false);
+            $table->boolean('isAvaible')->default(true);
             $table->tinyInteger('rating')->default(0);
             $table->integer('lessor_id');
             $table->integer('address_id');

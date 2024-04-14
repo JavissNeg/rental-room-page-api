@@ -11,5 +11,4 @@ class State extends Model
 
     protected $table = 'state';
     protected $primaryKey = 'state_id';
-    public $timestamps = false;
 }

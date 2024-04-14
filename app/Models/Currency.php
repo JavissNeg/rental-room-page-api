@@ -10,4 +10,10 @@ class Currency extends Model
     use HasFactory;
 
     protected $table = 'currency';
+    protected $primaryKey = 'currency_id';
+    protected $fillable = [
+        'name', 
+        'symbol', 
+        'code'
+    ];
 }

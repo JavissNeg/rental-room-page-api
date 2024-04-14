@@ -17,6 +17,7 @@ return new class extends Migration
             $table->increments('city_id');
             $table->string('city', 30);
             $table->integer('state_id');
+            $table->timestamps();
 
             $table->primary(['city_id'], 'pk__city__031491a8fc98f403');
         });

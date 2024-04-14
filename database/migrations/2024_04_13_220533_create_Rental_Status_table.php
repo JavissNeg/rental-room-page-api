@@ -16,8 +16,8 @@ return new class extends Migration
         Schema::create('Rental_Status', function (Blueprint $table) {
             $table->increments('rental_status_id');
             $table->string('rental_status', 15);
-            $table->dateTime('registration_date')->nullable()->useCurrent();
-
+            $table->timestamps();
+            
             $table->primary(['rental_status_id'], 'pk__rental_s__5698bfd9746651b3');
         });
     }

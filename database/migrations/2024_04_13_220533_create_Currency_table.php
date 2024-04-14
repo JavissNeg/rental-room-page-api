@@ -17,6 +17,7 @@ return new class extends Migration
             $table->string('currency_id', 10);
             $table->string('symbol', 1);
             $table->decimal('exchange_rate', 4);
+            $table->timestamps();
 
             $table->primary(['currency_id'], 'pk__currency__c7f543d3d6bfc4f0');
         });

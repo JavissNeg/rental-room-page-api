@@ -20,6 +20,7 @@ return new class extends Migration
             $table->boolean('isVerified')->default(false);
             $table->boolean('isCertificate')->default(false);
             $table->integer('person_id');
+            $table->timestamps();
 
             $table->primary(['login_id'], 'pk__login__c2c971db4b1e77fe');
         });

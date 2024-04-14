@@ -21,6 +21,8 @@ class AddressSeeder extends Seeder
                 'street_number' => 123,
                 'apartment_number' => 123,
                 'city_id' => 1,
+                'created_at' => '2024-04-13 22:05:33',
+                'updated_at' => '2024-04-13 22:05:33',
             ],
             [
                 'street' => 'Rua 2',
@@ -29,6 +31,8 @@ class AddressSeeder extends Seeder
                 'street_number' => 321,
                 'apartment_number' => 321,
                 'city_id' => 1,
+                'created_at' => '2024-04-13 22:05:33',
+                'updated_at' => '2024-04-13 22:05:33',
             ],
             [
                 'street' => 'Rua 3',
@@ -37,6 +41,8 @@ class AddressSeeder extends Seeder
                 'street_number' => 456,
                 'apartment_number' => 456,
                 'city_id' => 1,
+                'created_at' => '2024-04-13 22:05:33',
+                'updated_at' => '2024-04-13 22:05:33',
             ],
             [
                 'street' => 'Rua 4',
@@ -45,6 +51,8 @@ class AddressSeeder extends Seeder
                 'street_number' => 567,
                 'apartment_number' => 567,
                 'city_id' => 1,
+                'created_at' => '2024-04-13 22:05:33',
+                'updated_at' => '2024-04-13 22:05:33',
             ],
             [
                 'street' => 'Rua 5',
@@ -53,6 +61,8 @@ class AddressSeeder extends Seeder
                 'street_number' => 876,
                 'apartment_number' => 876,
                 'city_id' => 1,
+                'created_at' => '2024-04-13 22:05:33',
+                'updated_at' => '2024-04-13 22:05:33',
             ],
             [
                 'street' => 'Rua 6',
@@ -61,6 +71,8 @@ class AddressSeeder extends Seeder
                 'street_number' => 123,
                 'apartment_number' => 123,
                 'city_id' => 2,
+                'created_at' => '2024-04-13 22:05:33',
+                'updated_at' => '2024-04-13 22:05:33',
             ],
             [
                 'street' => 'Rua 7',
@@ -69,6 +81,8 @@ class AddressSeeder extends Seeder
                 'street_number' => 321,
                 'apartment_number' => 321,
                 'city_id' => 2,
+                'created_at' => '2024-04-13 22:05:33',
+                'updated_at' => '2024-04-13 22:05:33',
             ],
             [
                 'street' => 'Rua 8',
@@ -77,6 +91,8 @@ class AddressSeeder extends Seeder
                 'street_number' => 456,
                 'apartment_number' => 456,
                 'city_id' => 2,
+                'created_at' => '2024-04-13 22:05:33',
+                'updated_at' => '2024-04-13 22:05:33',
             ],
             [
                 'street' => 'Rua 9',
@@ -85,6 +101,8 @@ class AddressSeeder extends Seeder
                 'street_number' => 567,
                 'apartment_number' => 567,
                 'city_id' => 2,
+                'created_at' => '2024-04-13 22:05:33',
+                'updated_at' => '2024-04-13 22:05:33',
             ],
             [
                 'street' => 'Rua 10',
@@ -93,6 +111,8 @@ class AddressSeeder extends Seeder
                 'street_number' => 876,
                 'apartment_number' => 876,
                 'city_id' => 3,
+                'created_at' => '2024-04-13 22:05:33',
+                'updated_at' => '2024-04-13 22:05:33',
             ],
         ];
         

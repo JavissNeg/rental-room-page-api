@@ -15,6 +15,8 @@ return new class extends Migration
     {
         Schema::create('Property_Type', function (Blueprint $table) {
             $table->string('property_type_id', 30);
+            $table->string('description', 200);
+            $table->timestamps();
 
             $table->primary(['property_type_id'], 'pk__property__2e6fbfabd2287382');
         });

@@ -18,8 +18,7 @@ return new class extends Migration
             $table->tinyInteger('rating');
             $table->string('comment', 200)->nullable();
             $table->text('image_url')->nullable();
-            $table->dateTime('registration_date')->nullable()->useCurrent();
-            $table->dateTime('update_date')->nullable();
+            $table->timestamps();
 
             $table->primary(['evaluation_id'], 'pk__evaluati__827c592da674c77a');
         });

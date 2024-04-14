@@ -10,6 +10,7 @@ class CountryController extends Controller
     public function index()
     {
         $countries = Country::all();
+
         return response()->json(
             [
                 'status' => 200,

@@ -11,4 +11,13 @@ class Address extends Model
     
     protected $table = 'address';
     protected $primaryKey = 'address_id';
+    protected $fillable = [
+        'street', 
+        'district', 
+        'zip_code', 
+        'street_number', 
+        'apartment_number',
+        'city_id'
+    ];
+
 }

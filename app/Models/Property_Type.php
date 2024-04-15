@@ -12,7 +12,7 @@ class Property_Type extends Model
     protected $table = 'property_type';
     protected $primaryKey = 'property_type_id';
     protected $fillable = [
-        'property_type_id',
+        'property_type',
         'description',
     ];
 }

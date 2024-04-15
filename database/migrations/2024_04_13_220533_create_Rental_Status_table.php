@@ -14,7 +14,8 @@ return new class extends Migration
     public function up()
     {
         Schema::create('Rental_Status', function (Blueprint $table) {
-            $table->string('rental_status_id', 15);
+            $table->increments('rental_status_id');
+            $table->string('rental_status', 15);
             $table->string('description', 30);
             $table->timestamps();
             

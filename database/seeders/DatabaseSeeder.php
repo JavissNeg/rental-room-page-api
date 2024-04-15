@@ -6,6 +6,7 @@ use App\Models\User;
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 
+
 class DatabaseSeeder extends Seeder
 {
     /**
@@ -19,6 +20,15 @@ class DatabaseSeeder extends Seeder
                 StateSeeder::class,
                 CitySeeder::class,
                 AddressSeeder::class,
+                CurrencySeeder::class,
+                EvaluationSeeder::class,
+                PeriodSeeder::class,
+                PropertyTypeSeeder::class,
+                RentalStatusSeeder::class,
+                PersonSeeder::class,
+                LoginSeeder::class, // lack
+                PropertySeeder::class, // lack
+                RentalSeeder::class, // lack
             ]
         );
     }

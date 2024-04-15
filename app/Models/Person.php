@@ -14,9 +14,10 @@ class Person extends Model
     protected $fillable = [
         'national_id_image', 
         'first_name', 
-        'maternal_surname', 
         'paternal_surname', 
+        'maternal_surname', 
         'mail', 
-        'phone'
+        'phone',
+        'address_id',
     ];
 }

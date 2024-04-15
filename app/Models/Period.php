@@ -10,4 +10,8 @@ class Period extends Model
     use HasFactory;
 
     protected $table = 'period';
+    protected $primaryKey = 'period_id';
+    protected $fillable = [
+        'period'
+    ];
 }

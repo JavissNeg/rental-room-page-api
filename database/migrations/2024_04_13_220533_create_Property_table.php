@@ -26,9 +26,9 @@ return new class extends Migration
             $table->tinyInteger('rating')->default(0);
             $table->integer('lessor_id');
             $table->integer('address_id');
-            $table->string('property_type_id', 30);
-            $table->string('currency_id', 10);
-            $table->string('period_id', 5);
+            $table->integer('property_type_id');
+            $table->integer('currency_id');
+            $table->integer('period_id');
             $table->timestamps();
 
             $table->primary(['property_id'], 'pk__property__735ba46319f53f41');

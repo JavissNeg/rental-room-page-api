@@ -10,4 +10,10 @@ class Evaluation extends Model
     use HasFactory;
 
     protected $table = 'evaluation';
+    protected $primaryKey = 'evaluation_id';
+    protected $fillable = [
+        'rating',
+        'comment',
+        'image_url'
+    ];
 }

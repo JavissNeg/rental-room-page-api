@@ -6,7 +6,7 @@ use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
 
-class CountrySeeder extends Seeder
+class PeriodSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -16,19 +16,25 @@ class CountrySeeder extends Seeder
         $currentDateTime = now();
         echo $currentDateTime;
 
-        $data = [
+        $periods = [
             [
-                'country' => 'México', 
+                'period' => 'al día',
+                'updated_at' => $currentDateTime,
                 'created_at' => $currentDateTime,
-                'updated_at' => $currentDateTime
             ],
             [
-                'country' => 'United States',
+                'period' => 'al mes',
+                'updated_at' => $currentDateTime,
                 'created_at' => $currentDateTime,
-                'updated_at' => $currentDateTime
+            ],
+            [
+                'period' => 'a la semana',
+                'updated_at' => $currentDateTime,
+                'created_at' => $currentDateTime,
             ],
         ];
 
-        DB::table('Country')->insert($data);
+        DB::table('period')->insert($periods);
+
     }
 }

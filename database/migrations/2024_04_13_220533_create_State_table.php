@@ -17,6 +17,7 @@ return new class extends Migration
             $table->increments('state_id');
             $table->string('state', 30);
             $table->integer('country_id');
+            $table->timestamps();
             
             $table->primary(['state_id'], 'pk__state__81a4741758d14cf5');
         });

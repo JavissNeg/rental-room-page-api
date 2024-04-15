@@ -15,46 +15,45 @@ class CitySeeder extends Seeder
     {
         //\App\Models\City::factory(10)->create();
 
+        $currentDateTime = now();
+        echo $currentDateTime;
+
         $data = [
             [
-                'city' => 'City 1',
+                'city' => 'Puebla de Zaragoza',
                 'state_id' => 1,
+                'updated_at' => $currentDateTime,
+                'created_at' => $currentDateTime
             ],
             [
-                'city' => 'City 2',
+                'city' => 'Huauchinango',
                 'state_id' => 1,
+                'updated_at' => $currentDateTime,
+                'created_at' => $currentDateTime
             ],
             [
-                'city' => 'City 3',
+                'city' => 'Xicotepec de Juárez',
                 'state_id' => 1,
-            ],
-            [
-                'city' => 'City 4',
-                'state_id' => 1,
-            ],
-            [
-                'city' => 'City 5',
-                'state_id' => 1,
-            ],
-            [
-                'city' => 'City 6',
-                'state_id' => 1,
-            ],
-            [
-                'city' => 'City 7',
-                'state_id' => 1,
+                'updated_at' => $currentDateTime,
+                'created_at' => $currentDateTime
             ],
             [
                 'city' => 'City 8',
                 'state_id' => 2,
+                'updated_at' => $currentDateTime,
+                'created_at' => $currentDateTime
             ],
             [
                 'city' => 'City 9',
                 'state_id' => 2,
+                'updated_at' => $currentDateTime,
+                'created_at' => $currentDateTime
             ],
             [
                 'city' => 'City 10',
-                'state_id' => 2,
+                'state_id' => 3,
+                'updated_at' => $currentDateTime,
+                'created_at' => $currentDateTime
             ],
         ];
 

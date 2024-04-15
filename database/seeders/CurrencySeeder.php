@@ -6,7 +6,7 @@ use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
 
-class CountrySeeder extends Seeder
+class CurrencySeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -15,20 +15,31 @@ class CountrySeeder extends Seeder
     {
         $currentDateTime = now();
         echo $currentDateTime;
-
+        
         $data = [
             [
-                'country' => 'México', 
+                'name' => 'Peso mexicano',
+                'symbol' => '$',
+                'code' => 'MXN',
                 'created_at' => $currentDateTime,
                 'updated_at' => $currentDateTime
             ],
             [
-                'country' => 'United States',
+                'name' => 'US Dollar',
+                'symbol' => '$',
+                'code' => 'USD',
+                'created_at' => $currentDateTime,
+                'updated_at' => $currentDateTime
+            ],
+            [
+                'name' => 'Euro',
+                'symbol' => '€',
+                'code' => 'EUR',
                 'created_at' => $currentDateTime,
                 'updated_at' => $currentDateTime
             ],
         ];
 
-        DB::table('Country')->insert($data);
+        DB::table('Currency')->insert($data);
     }
 }

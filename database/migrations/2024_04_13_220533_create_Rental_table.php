@@ -18,7 +18,7 @@ return new class extends Migration
             $table->decimal('total', 15);
             $table->dateTime('start_date');
             $table->dateTime('end_date');
-            $table->string('rental_status_id', 15);
+            $table->integer('rental_status_id');
             $table->integer('property_id');
             $table->integer('lessee_id');
             $table->integer('evaluation_id');

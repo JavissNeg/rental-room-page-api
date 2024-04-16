@@ -64,7 +64,7 @@ class PersonController extends Controller
                     'paternal_surname' => 'required|string|max:10',
                     'maternal_surname' => 'required|string|max:10',
                     'mail' => 'required|email|max:60|unique:Person,mail',
-                    'phone' => 'nullable|string|max:10',
+                    'phone' => 'nullable|string|digits:10',
                     'address_id' => 'required|integer'
                 ]
             );
@@ -112,7 +112,7 @@ class PersonController extends Controller
                     'paternal_surname' => 'nullable|string|max:10',
                     'maternal_surname' => 'nullable|string|max:10',
                     'mail' => 'nullable|email|max:60|unique:Person,mail',
-                    'phone' => 'nullable|string|max:10',
+                    'phone' => 'nullable|string|digits:10',
                     'address_id' => 'nullable|integer'
                 ]
             );

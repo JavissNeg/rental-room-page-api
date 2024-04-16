@@ -26,7 +26,7 @@ class DatabaseSeeder extends Seeder
                 PropertyTypeSeeder::class,
                 RentalStatusSeeder::class,
                 PersonSeeder::class,
-                LoginSeeder::class, // lack
+                LoginSeeder::class, // here
                 PropertySeeder::class, // lack
                 RentalSeeder::class, // lack
             ]

@@ -12,6 +12,7 @@ use App\Http\Controllers\PeriodController;
 use App\Http\Controllers\PropertyTypeController;
 use App\Http\Controllers\RentalStatusController;
 use App\Http\Controllers\PersonController;
+use App\Http\Controllers\LoginController;
 
 /*
 Route::get('/user', function (Request $request) {
@@ -55,3 +56,6 @@ Route::get('/person', [PersonController::class, 'index']);
 Route::get('/person/{id}', [PersonController::class, 'show']);
 Route::put('/person/{id}', [PersonController::class, 'update']);
 Route::patch('/person/{id}', [PersonController::class, 'updatePartial']);
+
+Route::get('/login', [LoginController::Class, 'index']);
+Route::get('/login/{id}', [LoginController::class, 'show']);

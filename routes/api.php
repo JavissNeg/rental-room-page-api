@@ -13,6 +13,8 @@ use App\Http\Controllers\PropertyTypeController;
 use App\Http\Controllers\RentalStatusController;
 use App\Http\Controllers\PersonController;
 use App\Http\Controllers\LoginController;
+use App\Http\Controllers\PropertyController;
+use App\Http\Controllers\RentalController;
 
 /*
 Route::get('/user', function (Request $request) {
@@ -59,3 +61,21 @@ Route::patch('/person/{id}', [PersonController::class, 'updatePartial']);
 
 Route::get('/login', [LoginController::Class, 'index']);
 Route::get('/login/{id}', [LoginController::class, 'show']);
+Route::post('/login', [LoginController::class, 'store']);
+Route::put('/login/{id}', [LoginController::class, 'update']);
+Route::patch('/login/{id}', [LoginController::class, 'updatePartial']);
+Route::delete('/login/{id}', [LoginController::class, 'destroy']);
+
+Route::get('/property', [PropertyController::class, 'index']);
+Route::get('/property/{id}', [PropertyController::class, 'show']);
+Route::post('/property', [PropertyController::class, 'store']);
+Route::put('/property/{id}', [PropertyController::class, 'update']);
+Route::patch('/property/{id}', [PropertyController::class, 'updatePartial']);
+Route::delete('/property/{id}', [PropertyController::class, 'destroy']);
+
+Route::get('/rental', [RentalController::class, 'index']);
+Route::get('/rental/{id}', [RentalController::class, 'show']);
+Route::post('/rental', [RentalController::class, 'store']);
+Route::put('/rental/{id}', [RentalController::class, 'update']);
+Route::patch('/rental/{id}', [RentalController::class, 'updatePartial']);
+Route::delete('/rental/{id}', [RentalController::class, 'destroy']);

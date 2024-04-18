@@ -18,6 +18,7 @@ return new class extends Migration
             $table->decimal('total', 15);
             $table->dateTime('start_date');
             $table->dateTime('end_date');
+            $table->binary('contract')->nullable();
             $table->integer('rental_status_id');
             $table->integer('property_id');
             $table->integer('lessee_id');

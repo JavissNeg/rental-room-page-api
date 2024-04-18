@@ -16,6 +16,7 @@ class Rental extends Model
         'total',
         'start_date',
         'end_date',
+        'contract',
         'rental_status_id',
         'property_id',
         'lessee_id',

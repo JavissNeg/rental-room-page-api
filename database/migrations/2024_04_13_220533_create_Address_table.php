@@ -15,6 +15,7 @@ return new class extends Migration
     {
         Schema::create('Address', function (Blueprint $table) {
             $table->increments('address_id');
+            $table->geography('location')->nullable();
             $table->string('street', 30);
             $table->string('district', 15);
             $table->integer('zip_code');

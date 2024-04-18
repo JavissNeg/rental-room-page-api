@@ -47,6 +47,7 @@ class AddressController extends Controller
         $validator = Validator::make(
             $request->all(),
             [
+                'location'=> '',
                 'street' => 'required|max:30',
                 'district' => 'required|max:15',
                 'zip_code' => 'required|digits:5',
@@ -120,6 +121,7 @@ class AddressController extends Controller
                 $validator = Validator::make(
                     $request->all(),
                     [
+                        'location'=> '',
                         'street' => 'required|max:30',
                         'district' => 'required|max:15',
                         'zip_code' => 'required|digits:5',
@@ -178,6 +180,7 @@ class AddressController extends Controller
                 $validator = Validator::make(
                     $request->all(),
                     [
+                        'location'=> '',
                         'street' => 'max:30',
                         'district' => 'max:15',
                         'zip_code' => 'digits:5',
@@ -199,6 +202,9 @@ class AddressController extends Controller
     
                 } else {
     
+                    if($request->has('location')) {
+                        $address->location = $request->location;
+                    };
                     if ($request->has('street')) {
                         $address->street = $request->street;
                     }

@@ -88,7 +88,7 @@ class LoginController extends Controller
 
     public function update(Request $request, $id) {
         $login = Login::find($id);
-
+        
         if(!$login) {
             return response()->json(
                 [
@@ -215,4 +215,5 @@ class LoginController extends Controller
             );
         }
     }
+
 }

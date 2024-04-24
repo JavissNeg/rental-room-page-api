@@ -16,6 +16,7 @@ use App\Http\Controllers\LoginController;
 use App\Http\Controllers\PropertyController;
 use App\Http\Controllers\RentalController;
 use App\Http\Controllers\MailController;
+use App\Http\Controllers\PaymentController;
 
 /*
 Route::get('/user', function (Request $request) {
@@ -82,3 +83,5 @@ Route::patch('/rental/{id}', [RentalController::class, 'updatePartial']);
 Route::delete('/rental/{id}', [RentalController::class, 'destroy']);
 
 Route::post('/mail', [MailController::class, 'store']);
+
+Route::post('/payment', [PaymentController::class, 'purchase']);

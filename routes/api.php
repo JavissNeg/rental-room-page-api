@@ -61,7 +61,7 @@ Route::get('/person/{id}', [PersonController::class, 'show']);
 Route::put('/person/{id}', [PersonController::class, 'update']);
 Route::patch('/person/{id}', [PersonController::class, 'updatePartial']);
 
-Route::get('/login', [LoginController::Class, 'index']);
+Route::get('/login', [LoginController::class, 'index']);
 Route::get('/login/{id}', [LoginController::class, 'show']);
 Route::post('/login', [LoginController::class, 'store']);
 Route::put('/login/{id}', [LoginController::class, 'update']);

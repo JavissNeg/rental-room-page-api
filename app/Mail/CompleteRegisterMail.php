@@ -9,15 +9,20 @@ use Illuminate\Mail\Mailables\Content;
 use Illuminate\Mail\Mailables\Envelope;
 use Illuminate\Queue\SerializesModels;
 
-class VerificationCodeMail extends Mailable
+class CompleteRegisterMail extends Mailable
 {
     use Queueable, SerializesModels;
-    
-    protected $verificationCode;
 
-    public function __construct($verificationCode)
+    protected $username;
+    protected $url;
+
+    /**
+     * Create a new message instance.
+     */
+    public function __construct($username)
     {
-        $this->verificationCode = $verificationCode;
+        $this->username = $username;
+        $this->url = env('FRONTEND_URL');
     }
 
     /**
@@ -26,7 +31,7 @@ class VerificationCodeMail extends Mailable
     public function envelope(): Envelope
     {
         return new Envelope(
-            subject: 'Verification Code Mail',
+            subject: 'Complete Register Mail',
         );
     }
 
@@ -36,8 +41,11 @@ class VerificationCodeMail extends Mailable
     public function content(): Content
     {
         return new Content(
-            view: 'mail.verificationcode',
-            with: ['verificationCode' => $this->verificationCode],
+            view: 'mail.completeregister',
+            with: [
+                'username' => $this->username,
+                'url' => $this->url,
+            ],
         );
     }
 

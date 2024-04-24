@@ -13,9 +13,14 @@ class PaymentController extends Controller
     public function __construct()
     {
         $this->gateway = Omnipay::create('PayPal_Rest');
-        $this->gateway->setClientId(env('PAYPAL_CLIENT_ID'));
-        $this->gateway->setSecret(env('PAYPAL_SECRET'));
-        $this->gateway->setTestMode(env('PAYPAL_TEST_MODE'));
+        $this->gateway->initialize(
+            [
+                'clientId' => env('PAYPAL_CLIENT_ID'),
+                'secret' => env('PAYPAL_SECRET'),
+                'testMode' => env('PAYPAL_TEST_MODE')
+            ]
+        );
+        
     }
     
     public function purchase(Request $request)

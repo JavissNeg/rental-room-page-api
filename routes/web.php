@@ -8,9 +8,9 @@ Route::get('/', function () {
 
 Route::get('mail', function () {
     return view(
-        'mail.verificationcode',
+        'mail.verificationCode',
         [
-            'verificationCode' => '123456',
+            'verificationCode' => '123'
         ]
     );
 });

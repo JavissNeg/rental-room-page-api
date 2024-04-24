@@ -52,7 +52,7 @@ class LoginController extends Controller
                 'person_id' => 'required'
             ]
         );
-
+        
         if($validator->fails()) {
             return response()->json(
                 [

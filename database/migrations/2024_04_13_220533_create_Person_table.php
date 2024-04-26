@@ -21,7 +21,7 @@ return new class extends Migration
             $table->string('maternal_surname', 10);
             $table->string('mail', 60);
             $table->string('phone', 10)->nullable();
-            $table->integer('address_id');
+            $table->integer('address_id')->nullable();
             $table->timestamps();
 
             $table->primary(['person_id'], 'pk__person__543848df7276a500');

@@ -45,11 +45,16 @@ class LoginController extends Controller
         $validator = Validator::make(
             $request->all(),
             [
-                'username' => 'required',
-                'password' => 'required',
-                'isVerified' => 'required',
-                'isCertified' => 'required',
-                'person_id' => 'required'
+                'national_id_image' => 'nullable',
+                'first_name' => 'required',
+                'paternal_surname' => 'required',
+                'maternal_surname' => 'required',
+                'mail' => 'required|email|unique:login,mail',
+                'phone' => 'nullable|numeric',
+                'password' => 'required ',
+                'isVerified' => 'required|accepted',
+                'isCertified' => 'required|boolean',
+                'address_id' => 'nullable|numeric'
             ]
         );
         
@@ -100,12 +105,16 @@ class LoginController extends Controller
         } else {
             $validator = Validator::make(
                 $request->all(),
-                [
-                    'username' => 'required',
+                [   'national_id_image' => 'nullable', 
+                    'first_name' => 'required',
+                    'paternal_surname' => 'required',
+                    'maternal_surname' => 'required',
+                    'mail' => 'required|email',
+                    'phone' => 'nullable|numeric',
                     'password' => 'required',
                     'isVerified' => 'required',
                     'isCertified' => 'required',
-                    'person_id' => 'required'
+                    'address_id' => 'required'
                 ]
             );
 
@@ -146,11 +155,16 @@ class LoginController extends Controller
             $validator = Validator::make(
                 $request->all(),
                 [
-                    'username' => '',
+                    'national_id_image' => '', 
+                    'first_name' => '', 
+                    'paternal_surname' => '', 
+                    'maternal_surname' => '', 
+                    'mail' => '', 
+                    'phone' => '',
                     'password' => '',
                     'isVerified' => '',
                     'isCertified' => '',
-                    'person_id' => ''
+                    'address_id' => ''
                 ]
             );
 
@@ -164,8 +178,23 @@ class LoginController extends Controller
                 );
             } else {
 
-                if($request->has('username')) {
-                    $login->username = $request->username;
+                if($request->has('national_id_image')) {
+                    $login->username = $request->national_id_image;
+                }
+                if($request->has('first_name')) {
+                    $login->first_name = $request->first_name;
+                }
+                if($request->has('paternal_surname')) {
+                    $login->paternal_surname = $request->paternal_surname;
+                }
+                if($request->has('maternal_surname')) {
+                    $login->maternal_surname = $request->maternal_surname;
+                }
+                if($request->has('mail')) {
+                    $login->mail = $request->mail;
+                }
+                if($request->has('phone')) {
+                    $login->phone = $request->phone;
                 }
                 if($request->has('password')) {
                     $login->password = $request->password;
@@ -176,8 +205,8 @@ class LoginController extends Controller
                 if($request->has('isCertified')) {
                     $login->isCertificate = $request->isCertified;
                 }
-                if($request->has('person_id')) {
-                    $login->person_id = $request->person_id;
+                if($request->has('address_id')) {
+                    $login->person_id = $request->address_id;
                 }
 
                 $login->save();
@@ -211,6 +240,28 @@ class LoginController extends Controller
                     'success' => 200,
                     'data' => $login,
                     'message' => 'Login deleted successfully'
+                ]
+            );
+        }
+    }
+
+    public function searchByMail($mail) {
+        $login = Login::where('mail', $mail)->get();
+
+        if($login->isEmpty()) {
+            return response()->json(
+                [
+                    'success' => 404,
+                    'data' => null,
+                    'message' => 'Login not found'
+                ]
+            );
+        } else {
+            return response()->json(
+                [
+                    'success' => 200,
+                    'data' => $login,
+                    'message' => 'Login retrieved successfully'
                 ]
             );
         }

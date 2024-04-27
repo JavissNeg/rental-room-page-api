@@ -11,7 +11,6 @@ use App\Http\Controllers\EvaluationController;
 use App\Http\Controllers\PeriodController;
 use App\Http\Controllers\PropertyTypeController;
 use App\Http\Controllers\RentalStatusController;
-use App\Http\Controllers\PersonController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\PropertyController;
 use App\Http\Controllers\RentalController;
@@ -56,18 +55,13 @@ Route::get('/property_type/{id}', [PropertyTypeController::class, 'show']);
 Route::get('/rental_status', [RentalStatusController::class, 'index']);
 Route::get('/rental_status/{id}', [RentalStatusController::class, 'show']);
 
-Route::get('/person', [PersonController::class, 'index']);
-Route::post('/person', [PersonController::class, 'store']);
-Route::get('/person/{id}', [PersonController::class, 'show']);
-Route::put('/person/{id}', [PersonController::class, 'update']);
-Route::patch('/person/{id}', [PersonController::class, 'updatePartial']);
-
 Route::get('/login', [LoginController::class, 'index']);
 Route::get('/login/{id}', [LoginController::class, 'show']);
 Route::post('/login', [LoginController::class, 'store']);
 Route::put('/login/{id}', [LoginController::class, 'update']);
 Route::patch('/login/{id}', [LoginController::class, 'updatePartial']);
 Route::delete('/login/{id}', [LoginController::class, 'destroy']);
+Route::get('/login/mail/{mail}', [LoginController::class, 'searchByMail']);
 
 Route::get('/property', [PropertyController::class, 'index']);
 Route::get('/property/{id}', [PropertyController::class, 'show']);

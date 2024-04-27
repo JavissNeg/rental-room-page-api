@@ -12,10 +12,15 @@ class Login extends Model
     protected $table = 'login';
     protected $primaryKey = 'login_id';
     protected $fillable = [
-        'username',
+        'national_id_image', 
+        'first_name', 
+        'paternal_surname', 
+        'maternal_surname', 
+        'mail', 
+        'phone',
         'password',
         'isVerified',
         'isCertificate',
-        'person_id'
+        'address_id'
     ];
 }

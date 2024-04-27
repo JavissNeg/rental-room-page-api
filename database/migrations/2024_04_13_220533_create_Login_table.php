@@ -15,11 +15,16 @@ return new class extends Migration
     {
         Schema::create('Login', function (Blueprint $table) {
             $table->increments('login_id');
-            $table->string('username', 10);
+            $table->binary('national_id_image')->nullable();
+            $table->string('first_name', 20);
+            $table->string('paternal_surname', 10);
+            $table->string('maternal_surname', 10);
+            $table->string('mail', 60);
+            $table->string('phone', 10)->nullable();
             $table->string('password', 20);
             $table->boolean('isVerified')->default(false);
             $table->boolean('isCertified')->default(false);
-            $table->integer('person_id');
+            $table->integer('address_id')->nullable();
             $table->timestamps();
 
             $table->primary(['login_id'], 'pk__login__c2c971db4b1e77fe');

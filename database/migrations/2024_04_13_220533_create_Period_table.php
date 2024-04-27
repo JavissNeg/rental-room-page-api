@@ -15,7 +15,7 @@ return new class extends Migration
     {
         Schema::create('Period', function (Blueprint $table) {
             $table->increments('period_id');
-            $table->string('period', 15)->unique();
+            $table->string('period', 15);
             $table->timestamps();   
 
             $table->primary(['period_id'], 'pk__period__2323ee4401ab3062');

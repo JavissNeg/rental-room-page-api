@@ -18,20 +18,28 @@ class LoginSeeder extends Seeder
 
         $logins = [
             [
-                'username' => 'admin',
+                'first_name' => 'Javier',
+                'paternal_surname' => 'Negrete',
+                'maternal_surname' => 'Barranco',
+                'mail' => 'a@example.com',
+                'phone' => '1234567890',
                 'password' => 'admin',
                 'isVerified' => true,
-                'isCertified' => true,
-                'person_id' => 1,
+                'isCertified' => false,
+                'address_id' => 1,
                 'updated_at' => $currentDateTime,
                 'created_at' => $currentDateTime
             ],
             [
-                'username' => 'user',
-                'password' => 'user',
+                'first_name' => 'User 2',
+                'paternal_surname' => 'surname 2',
+                'maternal_surname' => 'surname 2',
+                'mail' => 'e@gmail.com',
+                'phone' => '0987654321',
+                'password' => 'admin',
                 'isVerified' => true,
                 'isCertified' => false,
-                'person_id' => 2,
+                'address_id' => 2,
                 'updated_at' => $currentDateTime,
                 'created_at' => $currentDateTime
             ],

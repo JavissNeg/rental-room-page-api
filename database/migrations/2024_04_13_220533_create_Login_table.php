@@ -19,7 +19,7 @@ return new class extends Migration
             $table->string('first_name', 20);
             $table->string('paternal_surname', 10);
             $table->string('maternal_surname', 10);
-            $table->string('mail', 60);
+            $table->string('mail', 50);
             $table->string('phone', 10)->nullable();
             $table->string('password', 20);
             $table->boolean('isVerified')->default(false);

@@ -18,7 +18,7 @@ return new class extends Migration
             $table->string('username', 10);
             $table->string('password', 20);
             $table->boolean('isVerified')->default(false);
-            $table->boolean('isCertificate')->default(false);
+            $table->boolean('isCertified')->default(false);
             $table->integer('person_id');
             $table->timestamps();
 

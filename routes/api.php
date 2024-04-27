@@ -57,6 +57,7 @@ Route::get('/rental_status', [RentalStatusController::class, 'index']);
 Route::get('/rental_status/{id}', [RentalStatusController::class, 'show']);
 
 Route::get('/person', [PersonController::class, 'index']);
+Route::post('/person', [PersonController::class, 'store']);
 Route::get('/person/{id}', [PersonController::class, 'show']);
 Route::put('/person/{id}', [PersonController::class, 'update']);
 Route::patch('/person/{id}', [PersonController::class, 'updatePartial']);

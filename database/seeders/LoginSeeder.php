@@ -21,7 +21,7 @@ class LoginSeeder extends Seeder
                 'username' => 'admin',
                 'password' => 'admin',
                 'isVerified' => true,
-                'isCertificate' => true,
+                'isCertified' => true,
                 'person_id' => 1,
                 'updated_at' => $currentDateTime,
                 'created_at' => $currentDateTime
@@ -30,7 +30,7 @@ class LoginSeeder extends Seeder
                 'username' => 'user',
                 'password' => 'user',
                 'isVerified' => true,
-                'isCertificate' => false,
+                'isCertified' => false,
                 'person_id' => 2,
                 'updated_at' => $currentDateTime,
                 'created_at' => $currentDateTime

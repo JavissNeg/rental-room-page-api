@@ -44,6 +44,43 @@ class PersonController extends Controller
         }
     }
 
+    public function store(Request $request) {
+        $validator = Validator::make(
+            $request->all(),
+            [
+                'national_id_image' => 'nullable',
+                'first_name' => 'required|string|max:20',
+                'paternal_surname' => 'required|string|max:10',
+                'maternal_surname' => 'required|string|max:10',
+                'mail' => 'required|email|max:60|unique:Person,mail',
+                'phone' => 'nullable|string|digits:10',
+                'address_id' => 'nullable|integer'
+            ]
+        );
+
+        if($validator->fails()) {
+            return response()->json(
+                [
+                    'status' => 400,
+                    'errors' => $validator->errors(),
+                    'message' => 'Bad request'
+                ],
+                400
+            );
+        } else {
+
+            $person = Person::create($request->all());
+
+            return response()->json(
+                [
+                    'status' => 201,
+                    'errors' => $person,
+                    'message' => 'Person created successfully'
+                ]
+            );
+        }
+    }
+
     public function update(Request $request, $id) {
         $person = Person::find($id);
 
@@ -52,8 +89,7 @@ class PersonController extends Controller
                 [
                     'status' => 404,
                     'message' => 'Person not found'
-                ],
-                404
+                ]
             );
         } else {
             $validator = Validator::make(
@@ -75,8 +111,7 @@ class PersonController extends Controller
                         'status' => 400,
                         'errors' => $validator->errors(),
                         'message' => 'Bad request'
-                    ],
-                    400
+                    ]
                 );
             } else {
                 $person->update($request->all());

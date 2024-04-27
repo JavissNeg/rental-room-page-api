@@ -48,7 +48,7 @@ class LoginController extends Controller
                 'username' => 'required',
                 'password' => 'required',
                 'isVerified' => 'required',
-                'isCertificate' => 'required',
+                'isCertified' => 'required',
                 'person_id' => 'required'
             ]
         );
@@ -104,7 +104,7 @@ class LoginController extends Controller
                     'username' => 'required',
                     'password' => 'required',
                     'isVerified' => 'required',
-                    'isCertificate' => 'required',
+                    'isCertified' => 'required',
                     'person_id' => 'required'
                 ]
             );
@@ -149,7 +149,7 @@ class LoginController extends Controller
                     'username' => '',
                     'password' => '',
                     'isVerified' => '',
-                    'isCertificate' => '',
+                    'isCertified' => '',
                     'person_id' => ''
                 ]
             );
@@ -173,8 +173,8 @@ class LoginController extends Controller
                 if($request->has('isVerified')) {
                     $login->isVerified = $request->isVerified;
                 }
-                if($request->has('isCertificate')) {
-                    $login->isCertificate = $request->isCertificate;
+                if($request->has('isCertified')) {
+                    $login->isCertificate = $request->isCertified;
                 }
                 if($request->has('person_id')) {
                     $login->person_id = $request->person_id;

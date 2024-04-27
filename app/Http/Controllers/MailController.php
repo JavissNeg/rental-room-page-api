@@ -19,7 +19,7 @@ class MailController extends Controller
 
         if ($validator->fails()) {
             return $this->createErrorResponse($validator->errors());
-        }
+        } 
 
         if($request->type == $this->VERIFICATION_TYPE) {
             return $this->handleVerificationType($request);

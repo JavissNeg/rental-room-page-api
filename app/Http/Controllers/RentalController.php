@@ -10,9 +10,9 @@ class RentalController extends Controller
 {
     public function index() {
         $rentals = Rental::all();
-        return respone()->json(
+        return response()->json(
             [
-                'success' => 200,
+                'status' => 200,
                 'data' => $rentals,
                 'message' => 'Rental retrieved successfully'
             ]
@@ -25,7 +25,7 @@ class RentalController extends Controller
         if($rental) {
             return response()->json(
                 [
-                    'success' => 200,
+                    'status' => 200,
                     'data' => $rental,
                     'message' => 'Rental retrieved successfully'
                 ]
@@ -33,7 +33,7 @@ class RentalController extends Controller
         } else {
             return response()->json(
                 [
-                    'success' => 404,
+                    'status' => 404,
                     'data' => null,
                     'message' => 'Rental not found'
                 ]
@@ -61,7 +61,7 @@ class RentalController extends Controller
 
             return response()->json(
                 [
-                    'success' => 400,
+                    'status' => 400,
                     'data' => $validator->errors(),
                     'message' => 'Rental not created'
                 ]
@@ -74,7 +74,7 @@ class RentalController extends Controller
             if($rental) {
                 return response()->json(
                     [
-                        'success' => 201,
+                        'status' => 201,
                         'data' => $rental,
                         'message' => 'Rental created successfully'
                     ]
@@ -99,7 +99,7 @@ class RentalController extends Controller
         if(!$rental) {
             return response()->json(
                 [
-                    'success' => 404,
+                    'status' => 404,
                     'data' => null,
                     'message' => 'Rental not found'
                 ]
@@ -123,7 +123,7 @@ class RentalController extends Controller
             if($validator->fails()) {
                 return response()->json(
                     [
-                        'success' => 400,
+                        'status' => 400,
                         'data' => $validator->errors(),
                         'message' => 'Rental not updated'
                     ]
@@ -134,7 +134,7 @@ class RentalController extends Controller
 
                 return response()->json(
                     [
-                        'success' => 200,
+                        'status' => 200,
                         'data' => $rental,
                         'message' => 'Rental updated successfully'
                     ]
@@ -150,7 +150,7 @@ class RentalController extends Controller
         if(!$rental) {
             return response()->json(
                 [
-                    'success' => 404,
+                    'status' => 404,
                     'data' => null,
                     'message' => 'Rental not found'
                 ]
@@ -174,7 +174,7 @@ class RentalController extends Controller
             if($validator->fails()) {
                 return response()->json(
                     [
-                        'success' => 400,
+                        'status' => 400,
                         'data' => $validator->errors(),
                         'message' => 'Rental not updated'
                     ]
@@ -210,7 +210,7 @@ class RentalController extends Controller
 
                 return response()->json(
                     [
-                        'success' => 200,
+                        'status' => 200,
                         'data' => $rental,
                         'message' => 'Rental updated successfully'
                     ]
@@ -225,7 +225,7 @@ class RentalController extends Controller
         if(!$rental) {
             return response()->json(
                 [
-                    'success' => 404,
+                    'status' => 404,
                     'data' => null,
                     'message' => 'Rental not found'
                 ]
@@ -235,7 +235,7 @@ class RentalController extends Controller
 
             return response()->json(
                 [
-                    'success' => 200,
+                    'status' => 200,
                     'data' => $rental,
                     'message' => 'Rental deleted successfully'
                 ]

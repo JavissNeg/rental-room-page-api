@@ -61,7 +61,7 @@ class LoginController extends Controller
         if($validator->fails()) {
             return response()->json(
                 [
-                    'success' => 400,
+                    'status' => 400,
                     'data' => null,
                     'message' => $validator->errors()
                 ]
@@ -73,7 +73,7 @@ class LoginController extends Controller
             if($login) {
                 return response()->json(
                     [
-                        'success' => 201,
+                        'status' => 201,
                         'data' => $login,
                         'message' => 'Login created successfully'
                     ]
@@ -81,7 +81,7 @@ class LoginController extends Controller
             } else {
                 return response()->json(
                     [
-                        'success' => 500,
+                        'status' => 500,
                         'data' => null,
                         'message' => 'Login could not be created'
                     ]
@@ -97,7 +97,7 @@ class LoginController extends Controller
         if(!$login) {
             return response()->json(
                 [
-                    'success' => 404,
+                    'status' => 404,
                     'data' => null,
                     'message' => 'Login not found'
                 ]
@@ -121,7 +121,7 @@ class LoginController extends Controller
             if($validator->fails()) {
                 return response()->json(
                     [
-                        'success' => 400,
+                        'status' => 400,
                         'data' => null,
                         'message' => $validator->errors()
                     ]
@@ -130,7 +130,7 @@ class LoginController extends Controller
                 $login->update($request->all());
                 return response()->json(
                     [
-                        'success' => 200,
+                        'status' => 200,
                         'data' => $login,
                         'message' => 'Login updated successfully'
                     ]
@@ -145,7 +145,7 @@ class LoginController extends Controller
         if(!$login) {
             return response()->json(
                 [
-                    'success' => 404,
+                    'status' => 404,
                     'data' => null,
                     'message' => 'Login not found'
                 ]
@@ -171,7 +171,7 @@ class LoginController extends Controller
             if($validator->fails()) {
                 return response()->json(
                     [
-                        'success' => 400,
+                        'status' => 400,
                         'data' => null,
                         'message' => $validator->errors()
                     ]
@@ -213,7 +213,7 @@ class LoginController extends Controller
 
                 return response()->json(
                     [
-                        'success' => 200,
+                        'status' => 200,
                         'data' => $login,
                         'message' => 'Login updated successfully'
                     ]
@@ -228,7 +228,7 @@ class LoginController extends Controller
         if(!$login) {
             return response()->json(
                 [
-                    'success' => 404,
+                    'status' => 404,
                     'data' => null,
                     'message' => 'Login not found'
                 ]
@@ -237,7 +237,7 @@ class LoginController extends Controller
             $login->delete();
             return response()->json(
                 [
-                    'success' => 200,
+                    'status' => 200,
                     'data' => $login,
                     'message' => 'Login deleted successfully'
                 ]

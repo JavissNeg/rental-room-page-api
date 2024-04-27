@@ -90,9 +90,13 @@ class MailController extends Controller
             );
 
         } else {
-            
-            return $this->createErrorResponse('Username missing');
-
+            return response()->json(
+                [
+                    'status' => 400,
+                    'message' => 'Username missing'
+                ]
+            );
         }
     }
+
 }

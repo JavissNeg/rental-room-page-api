@@ -12,7 +12,7 @@ class LoginController extends Controller
         $logins = Login::all();
         return response()->json(
             [
-                'success' => 200,
+                'status' => 200,
                 'data' => $logins,
                 'message' => 'Logins retrieved successfully'
             ]
@@ -25,7 +25,7 @@ class LoginController extends Controller
         if(!$login) {
             return response()->json(
                 [
-                    'success' => 404,
+                    'status' => 404,
                     'data' => null,
                     'message' =>  'Login not found'
                 ]
@@ -33,7 +33,7 @@ class LoginController extends Controller
         } else {
             return response()->json(
                 [
-                    'success' => 200,
+                    'status' => 200,
                     'data' => $login,
                     'message' =>  'Login retrieved successfully'
                 ]
@@ -251,7 +251,7 @@ class LoginController extends Controller
         if($login->isEmpty()) {
             return response()->json(
                 [
-                    'success' => 404,
+                    'status' => 404,
                     'data' => null,
                     'message' => 'Login not found'
                 ]
@@ -259,7 +259,7 @@ class LoginController extends Controller
         } else {
             return response()->json(
                 [
-                    'success' => 200,
+                    'status' => 200,
                     'data' => $login,
                     'message' => 'Login retrieved successfully'
                 ]

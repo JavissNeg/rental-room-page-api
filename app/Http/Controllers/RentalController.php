@@ -82,7 +82,7 @@ class RentalController extends Controller
             } else {
                 return response()->json(
                     [
-                        'success' => 500,
+                        'status' => 500,
                         'data' => null,
                         'message' => 'Rental not created'
                     ]

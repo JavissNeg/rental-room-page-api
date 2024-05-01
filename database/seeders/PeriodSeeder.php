@@ -18,17 +18,17 @@ class PeriodSeeder extends Seeder
 
         $periods = [
             [
-                'period' => 'al día',
+                'period' => 'día',
                 'updated_at' => $currentDateTime,
                 'created_at' => $currentDateTime,
             ],
             [
-                'period' => 'al mes',
+                'period' => 'mes',
                 'updated_at' => $currentDateTime,
                 'created_at' => $currentDateTime,
             ],
             [
-                'period' => 'a la semana',
+                'period' => 'semana',
                 'updated_at' => $currentDateTime,
                 'created_at' => $currentDateTime,
             ],

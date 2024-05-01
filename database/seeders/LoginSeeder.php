@@ -34,7 +34,7 @@ class LoginSeeder extends Seeder
                 'first_name' => 'User 2',
                 'paternal_surname' => 'surname 2',
                 'maternal_surname' => 'surname 2',
-                'mail' => 'e@gmail.com',
+                'mail' => 'b@gmail.com',
                 'phone' => '0987654321',
                 'password' => '12345678',
                 'isVerified' => true,
@@ -43,6 +43,19 @@ class LoginSeeder extends Seeder
                 'updated_at' => $currentDateTime,
                 'created_at' => $currentDateTime
             ],
+            [
+                'first_name' => 'User 3',
+                'paternal_surname' => 'surname 3',
+                'maternal_surname' => 'surname 3',
+                'mail' => 'c@example.com',
+                'phone' => '1234567890',
+                'password' => '12345678',
+                'isVerified' => true,
+                'isCertified' => false,
+                'address_id' => 3,
+                'updated_at' => $currentDateTime,
+                'created_at' => $currentDateTime
+            ]
         ];
 
         DB::table('Login')->insert($logins);

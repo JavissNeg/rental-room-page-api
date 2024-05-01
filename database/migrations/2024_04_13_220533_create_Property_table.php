@@ -20,10 +20,10 @@ return new class extends Migration
             $table->tinyInteger('bedrooms_number');
             $table->tinyInteger('bathrooms_number');
             $table->text('image_url');
-            $table->decimal('price', 15);
+            $table->integer('price');
             $table->boolean('isVerified')->default(false);
             $table->boolean('isAvaible')->default(true);
-            $table->tinyInteger('rating')->default(0);
+            $table->decimal('rating', 2, 1)->default(0.0);
             $table->integer('lessor_id');
             $table->integer('address_id');
             $table->integer('property_type_id');

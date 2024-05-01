@@ -20,5 +20,10 @@ class Address extends Model
         'apartment_number',
         'city_id',
     ];
+    
+
+    public function city() {
+        return $this->belongsTo(City::class, 'city_id');
+    }
 
 }

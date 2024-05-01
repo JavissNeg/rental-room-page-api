@@ -249,14 +249,17 @@ class LoginController extends Controller
         $login = Login::where('mail', $mail)->get();
 
         if($login->isEmpty()) {
+
             return response()->json(
                 [
                     'status' => 404,
                     'data' => null,
                     'message' => 'Login not found'
-                ]
+                ]  
             );
+            
         } else {
+
             return response()->json(
                 [
                     'status' => 200,
@@ -264,6 +267,7 @@ class LoginController extends Controller
                     'message' => 'Login retrieved successfully'
                 ]
             );
+            
         }
     }
 

@@ -27,4 +27,27 @@ class Property extends Model
         'currency_id',
         'period_id'
     ];
+    protected $casts = [
+        'image_url' => 'array'
+    ];
+
+    public function login() {
+        return $this->belongsTo(Login::class, 'lessor_id')->select('login_id', 'first_name', 'paternal_surname', 'maternal_surname', 'mail', 'phone');
+    }
+
+    public function address() {
+        return $this->belongsTo(Address::class, 'address_id');
+    }
+
+    public function property_type() {
+        return $this->belongsTo(Property_Type::class, 'property_type_id');
+    }
+
+    public function currency() {
+        return $this->belongsTo(Currency::class, 'currency_id');
+    }
+
+    public function period() {
+        return $this->belongsTo(Period::class, 'period_id');
+    }
 }

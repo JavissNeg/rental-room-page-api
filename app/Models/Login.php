@@ -23,4 +23,8 @@ class Login extends Model
         'isCertificate',
         'address_id'
     ];
+
+    public function property() {
+        return $this->hasOne(Login::class);
+    }
 }

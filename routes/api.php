@@ -69,6 +69,8 @@ Route::post('/property', [PropertyController::class, 'store']);
 Route::put('/property/{id}', [PropertyController::class, 'update']);
 Route::patch('/property/{id}', [PropertyController::class, 'updatePartial']);
 Route::delete('/property/{id}', [PropertyController::class, 'destroy']);
+Route::get('/property/type/{property_type_id}', [PropertyController::class, 'findByType']);
+Route::get('/property/last/{number_top}', [PropertyController::class, 'getLast']);
 
 Route::get('/rental', [RentalController::class, 'index']);
 Route::get('/rental/{id}', [RentalController::class, 'show']);

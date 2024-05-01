@@ -9,7 +9,18 @@ use Illuminate\Support\Facades\Validator;
 class PropertyController extends Controller
 {
     public function index() {
-        $properties = Property::all();
+
+        
+        $properties = Property::with('login')
+            ->with('address')
+            ->with('address.city')
+            ->with('address.city.state')
+            ->with('address.city.state.country')
+            ->with('property_type')
+            ->with('currency')
+            ->with('period')
+            ->get();
+
         return response()->json(
             [
                 'status' => 200,
@@ -17,6 +28,7 @@ class PropertyController extends Controller
                 'message' => 'Properties retrieved successfully'
             ]
         );
+
     }
 
     public function show($id) {
@@ -276,6 +288,71 @@ class PropertyController extends Controller
             );
         }
         
+    }
+
+    public function findByType($property_type_id) {
+        
+        $properties = Property::with('login')
+        ->with('address')
+        ->with('address.city')
+        ->with('address.city.state')
+        ->with('address.city.state.country')
+        ->with('property_type')
+        ->with('currency')
+        ->with('period')
+        ->where('property_type_id', $property_type_id)
+        ->get();
+
+        if($properties) {
+            return response()->json(
+                [
+                    'status' => 200,
+                    'data' => $properties,
+                    'message' => 'Properties retrieved successfully'
+                ]
+            );
+        } else {
+            return response()->json(
+                [
+                    'status' => 404,
+                    'data' => null,
+                    'message' => 'Properties not found'
+                ]
+            );
+        }
+
+    }    
+
+    public function getLast($number_top) {
+        
+        $properties = Property::with('login')
+        ->with('address')
+        ->with('address.city')
+        ->with('address.city.state')
+        ->with('address.city.state.country')
+        ->with('property_type')
+        ->with('currency')
+        ->with('period')
+        ->get();
+
+        if($properties) {
+            return response()->json(
+                [
+                    'status' => 200,
+                    'data' => $properties,
+                    'message' => 'Properties retrieved successfully'
+                ]
+            );
+        } else {
+            return response()->json(
+                [
+                    'status' => 404,
+                    'data' => null,
+                    'message' => 'Properties not found'
+                ]
+            );
+        }
+
     }
 
 }

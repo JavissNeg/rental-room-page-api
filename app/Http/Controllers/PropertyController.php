@@ -32,7 +32,16 @@ class PropertyController extends Controller
     }
 
     public function show($id) {
-        $property = Property::find($id);
+        $property = Property::with('login')
+            ->with('address')
+            ->with('address.city')
+            ->with('address.city.state')
+            ->with('address.city.state.country')
+            ->with('property_type')
+            ->with('currency')
+            ->with('period')
+            ->find($id);
+
         if ($property) {
             return response()->json(
                 [

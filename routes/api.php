@@ -85,3 +85,4 @@ Route::get('/payment', [PaymentController::class, 'index']);
 Route::post('/payment', [PaymentController::class, 'purchase']);
 Route::get('/payment/check', [PaymentController::class, 'checkPayment']);
 
+Route::get('/evaluation/property/{property_id}', [EvaluationController::class, 'findByProperty']);

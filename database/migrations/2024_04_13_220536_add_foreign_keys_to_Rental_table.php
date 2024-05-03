@@ -15,7 +15,6 @@ return new class extends Migration
     {
         Schema::table('Rental', function (Blueprint $table) {
             $table->foreign(['payment_id'], 'fk_Rental_Payment')->references(['payment_id'])->on('Payment')->onUpdate('no action')->onDelete('no action');
-            $table->foreign(['evaluation_id'], 'fk_Rental_Evaluation')->references(['evaluation_id'])->on('Evaluation')->onUpdate('no action')->onDelete('no action');
             $table->foreign(['rental_status_id'], 'fk_Rental_RentalStatus')->references(['rental_status_id'])->on('Rental_Status')->onUpdate('no action')->onDelete('no action');
         });
     }
@@ -29,7 +28,6 @@ return new class extends Migration
     {
         Schema::table('Rental', function (Blueprint $table) {
             $table->dropForeign('fk_Rental_Payment');
-            $table->dropForeign('fk_Rental_Evaluation');
             $table->dropForeign('fk_Rental_RentalStatus');
         });
     }

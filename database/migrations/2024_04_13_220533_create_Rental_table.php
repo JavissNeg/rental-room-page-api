@@ -19,7 +19,6 @@ return new class extends Migration
             $table->dateTime('end_date');
             $table->binary('contract')->nullable();
             $table->integer('rental_status_id');
-            $table->integer('evaluation_id');
             $table->integer('payment_id');
             $table->timestamps();
             

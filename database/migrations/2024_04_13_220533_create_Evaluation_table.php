@@ -19,6 +19,7 @@ return new class extends Migration
             $table->string('comment', 200)->nullable();
             $table->text('image_url')->nullable();
             $table->integer('property_id')->unsigned();
+            $table->integer('login_id')->unsigned();
             
             $table->timestamps();
 

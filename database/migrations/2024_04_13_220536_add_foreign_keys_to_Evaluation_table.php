@@ -13,6 +13,7 @@ return new class extends Migration
     {
         Schema::table('Evaluation', function (Blueprint $table) {
             $table->foreign(['property_id'], 'fk_Evaluation_Property')->references(['property_id'])->on('Property')->onUpdate('no action')->onDelete('no action');
+            $table->foreign(['login_id'], 'fk_Evaluation_Login')->references(['login_id'])->on('Login')->onUpdate('no action')->onDelete('no action');
         });
     }
 
@@ -23,6 +24,7 @@ return new class extends Migration
     {
         Schema::table('Evaluation', function (Blueprint $table) {
             $table->dropForeign('fk_Evaluation_Property');
+            $table->dropForeign('fk_Evaluation_Login');
         });
     }
 };

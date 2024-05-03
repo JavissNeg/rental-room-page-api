@@ -14,6 +14,7 @@ class Evaluation extends Model
     protected $fillable = [
         'rating',
         'comment',
-        'image_url'
+        'image_url',
+        'property_id'
     ];
 }

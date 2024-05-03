@@ -21,7 +21,6 @@ class RentalSeeder extends Seeder
                 'start_date' => '2020-01-01 00:00:00',
                 'end_date' => '2020-01-31 23:59:59',
                 'rental_status_id' => 1,
-                'evaluation_id' => 1,
                 'payment_id' => 1,
                 'created_at' => $currentDateTime,
                 'updated_at' => $currentDateTime
@@ -30,7 +29,6 @@ class RentalSeeder extends Seeder
                 'start_date' => '2020-02-01 00:00:00',
                 'end_date' => '2020-02-29 23:59:59',
                 'rental_status_id' => 1,
-                'evaluation_id' => 2,
                 'payment_id' => 2,
                 'created_at' => $currentDateTime,
                 'updated_at' => $currentDateTime

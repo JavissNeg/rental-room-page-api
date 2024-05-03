@@ -13,13 +13,11 @@ class Rental extends Model
     protected $primaryKey = 'rental_id';
     protected $fillable = [
         'rental_id',
-        'total',
         'start_date',
         'end_date',
         'contract',
         'rental_status_id',
-        'property_id',
-        'lessee_id',
-        'evaluation_id'
+        'evaluation_id',
+        'payment_id'
     ];
 }

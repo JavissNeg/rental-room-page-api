@@ -27,6 +27,7 @@ class Property extends Model
         'currency_id',
         'period_id'
     ];
+    
     protected $casts = [
         'image_url' => 'array'
     ];

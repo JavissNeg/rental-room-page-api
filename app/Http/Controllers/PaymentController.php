@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Payment;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
 use Omnipay\Omnipay;
@@ -29,12 +30,18 @@ class PaymentController extends Controller
         try {
 
             $validator = Validator::make(
-                $request->all(), [
-                'amount' => 'required|numeric',
-                'currencyCode' => 'required|string',
-                'returnUrl' => 'required|url',
-                'cancelUrl' => 'required|url',
-            ]);
+                $request->all(), 
+                [
+                    'amount' => 'required|numeric',
+                    'currencyCode' => 'required|string',
+                    'returnUrl' => 'required|url',
+                    'cancelUrl' => 'required|url',
+                    'payment_type' => 'required|string',
+                    'amount' => 'required|numeric',
+                    'property_id' => 'required|numeric',
+                    'lessee_id' => 'required|numeric'
+                ]
+            );
 
            if ($validator->fails()) {
 
@@ -48,25 +55,51 @@ class PaymentController extends Controller
 
             } else {
 
-                $response = $this->gateway->purchase([
-                    'amount' => $request->amount,
-                    'currency' => $request->currencyCode,
-                    'returnUrl' => $request->returnUrl,
-                    'cancelUrl' => $request->cancelUrl,
-                ])->send();
+                $response = $this->gateway->purchase(
+                    [
+                        'amount' => $request->amount,
+                        'currency' => $request->currencyCode,
+                        'returnUrl' => $request->returnUrl,
+                        'cancelUrl' => $request->cancelUrl
+                    ]
+                )->send();
+                
         
                 if ($response->isRedirect()) {
-    
-                    return response()->json(
+                    
+                    $payment = Payment::create(
                         [
-                            'status' => 200,
-                            'data' => [
-                                'redirect_url' => $response->getRedirectUrl(),
-                                'payment_id' => $response->getTransactionReference()
-                            ],
-                            'message' => 'Payment processed successfully.'
+                            'payment_key' => $response->getTransactionReference(),
+                            'payment_type' => $request->payment_type,
+                            'amount' => $request->amount,
+                            'property_id' => $request->property_id,
+                            'lessee_id' => $request->lessee_id
                         ]
                     );
+
+                    $payment->redirect_url = $response->getRedirectUrl();
+
+                    if ($payment) {
+                   
+                        return response()->json(
+                            [
+                                'status' => 200,
+                                'data' => $payment,
+                                'message' => 'Payment processed successfully.'
+                            ]
+                        );
+
+                    } else {
+
+                        return response()->json(
+                            [
+                                'status' => 500,
+                                'error' => 'An error occurred while processing the payment. Please try again later.',
+                                'message' => 'An error occurred while processing the payment. Please try again later.'
+                            ]
+                        );
+
+                    }
     
                 } else {
     
@@ -82,32 +115,6 @@ class PaymentController extends Controller
 
             }
 
-            $response = $this->gateway->purchase(
-                [
-                    'amount' => $request->amount,
-                    'currency' => $request->currency,
-                    'returnUrl' => $request->returnUrl,
-                    'cancelUrl' => $request->cancelUrl,
-                ]
-            )->send();
-
-            if ($response->isRedirect()) {
-                return response()->json(
-                    [
-                        'status' => 200,
-                        'redirectUrl' => $response->getRedirectUrl(),
-                        'message' => 'Payment request sent successfully.'
-                    ]
-                );
-            } else {
-                return response()->json(
-                    [
-                        'status' => 500,
-                        'error' => $response->getMessage(),
-                        'message' => 'An error occurred while processing the payment. Please try again later.'
-                    ]
-                );
-           }
 
         } catch (Exception $e) {
             return response()->json(

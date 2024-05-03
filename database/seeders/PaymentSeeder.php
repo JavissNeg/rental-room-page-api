@@ -6,7 +6,7 @@ use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
 
-class RentalSeeder extends Seeder
+class PaymentSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -16,27 +16,27 @@ class RentalSeeder extends Seeder
         $currentDateTime = now();
         echo $currentDateTime;
 
-        $rentals = [
+        $payments = [
             [
-                'start_date' => '2020-01-01 00:00:00',
-                'end_date' => '2020-01-31 23:59:59',
-                'rental_status_id' => 1,
-                'evaluation_id' => 1,
-                'payment_id' => 1,
+                'payment_key' => '1',
+                'payment_type' => 'Paypal',
+                'amount' => 1000,
+                'property_id' => 1,
+                'lessee_id' => 1,
                 'created_at' => $currentDateTime,
                 'updated_at' => $currentDateTime
             ],
             [
-                'start_date' => '2020-02-01 00:00:00',
-                'end_date' => '2020-02-29 23:59:59',
-                'rental_status_id' => 1,
-                'evaluation_id' => 2,
-                'payment_id' => 2,
+                'payment_key' => '2',
+                'payment_type' => 'Paypal',
+                'amount' => 2000,
+                'property_id' => 1,
+                'lessee_id' => 1,
                 'created_at' => $currentDateTime,
                 'updated_at' => $currentDateTime
             ],
         ];
 
-        DB::table('Rental')->insert($rentals);
+        DB::table('payment')->insert($payments);
     }
 }

@@ -15,14 +15,12 @@ return new class extends Migration
     {
         Schema::create('Rental', function (Blueprint $table) {
             $table->increments('rental_id');
-            $table->decimal('total', 15);
             $table->dateTime('start_date');
             $table->dateTime('end_date');
             $table->binary('contract')->nullable();
             $table->integer('rental_status_id');
-            $table->integer('property_id');
-            $table->integer('lessee_id');
             $table->integer('evaluation_id');
+            $table->integer('payment_id');
             $table->timestamps();
             
             $table->primary(['rental_id'], 'pk__rental__67db611bb1838534');

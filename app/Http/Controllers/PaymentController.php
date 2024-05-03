@@ -71,6 +71,7 @@ class PaymentController extends Controller
                         [
                             'payment_key' => $response->getTransactionReference(),
                             'payment_type' => $request->payment_type,
+                            'payment_status_id' => 1,
                             'amount' => $request->amount,
                             'property_id' => $request->property_id,
                             'lessee_id' => $request->lessee_id

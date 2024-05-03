@@ -14,6 +14,7 @@ class Payment extends Model
     protected $fillable = [
         'payment_key',
         'payment_type',
+        'payment_status_id',
         'amount',
         'property_id',
         'lessee_id',

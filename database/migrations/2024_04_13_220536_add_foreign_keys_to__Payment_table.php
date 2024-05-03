@@ -14,6 +14,7 @@ return new class extends Migration
         Schema::table('Payment', function (Blueprint $table) {
             $table->foreign(['property_id'], 'fk_Payment_Property')->references(['property_id'])->on('Property')->onUpdate('no action')->onDelete('no action');
             $table->foreign(['lessee_id'], 'fk_Payment_Login')->references(['login_id'])->on('Login')->onUpdate('no action')->onDelete('no action');
+            $table->foreign(['payment_status_id'], 'fk_Payment_PaymentStatus')->references(['payment_status_id'])->on('Payment_Status')->onUpdate('no action')->onDelete('no action');
         });
     }
 
@@ -25,6 +26,7 @@ return new class extends Migration
         Schema::table('Payment', function (Blueprint $table) {
             $table->dropForeign('fk_Payment_Property');
             $table->dropForeign('fk_Payment_Login');
+            $table->dropForeign('fk_Payment_PaymentStatus');
         });
     }
 };

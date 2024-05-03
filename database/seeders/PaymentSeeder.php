@@ -20,6 +20,7 @@ class PaymentSeeder extends Seeder
             [
                 'payment_key' => '1',
                 'payment_type' => 'Paypal',
+                'payment_status_id' => 1,
                 'amount' => 1000,
                 'property_id' => 1,
                 'lessee_id' => 1,
@@ -29,6 +30,7 @@ class PaymentSeeder extends Seeder
             [
                 'payment_key' => '2',
                 'payment_type' => 'Paypal',
+                'payment_status_id' => 2,
                 'amount' => 2000,
                 'property_id' => 1,
                 'lessee_id' => 1,

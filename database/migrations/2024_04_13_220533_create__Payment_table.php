@@ -15,6 +15,7 @@ return new class extends Migration
             $table->increments('payment_id');
             $table->string('payment_key', 50);
             $table->string('payment_type', 10);
+            $table->integer('payment_status_id');
             $table->integer('amount');
             $table->integer('property_id');
             $table->integer('lessee_id');

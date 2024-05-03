@@ -24,9 +24,33 @@ class PaymentController extends Controller
         );
         
     }
+
+    public function index() {
+        $payments = Payment::all();
+
+        if ($payments) {
+            return response()->json(
+                [
+                    'status' => 200,
+                    'data' => $payments,
+                    'message' => 'Payments retrieved successfully.'
+                ]
+            );
+        } else {
+
+            return response()->json(
+                [
+                    'status' => 404,
+                    'error' => 'No payments found.',
+                    'message' => 'No payments found.'
+                ]
+            );
+            
+        }
+    }
     
-    public function purchase(Request $request)
-    {
+    public function purchase(Request $request) {
+
         try {
 
             $validator = Validator::make(

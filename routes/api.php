@@ -81,5 +81,7 @@ Route::delete('/rental/{id}', [RentalController::class, 'destroy']);
 
 Route::post('/mail', [MailController::class, 'store']);
 
+Route::get('/payment', [PaymentController::class, 'index']);
 Route::post('/payment', [PaymentController::class, 'purchase']);
 Route::get('/payment/check', [PaymentController::class, 'checkPayment']);
+

@@ -15,26 +15,8 @@ class MailController extends Controller
     private $RENTAL_TYPE = 'completeRental';
 
     public function store(Request $request) {
-        $validator = $this->validateRequest($request);
-
-        if ($validator->fails()) {
-            return $this->createErrorResponse($validator->errors());
-        } 
-
-        if($request->type == $this->VERIFICATION_TYPE) {
-            return $this->handleVerificationType($request);
-        }
-
-        if($request->type == $this->REGISTER_TYPE) {
-            return $this->handleRegisterType($request);
-        }
-
-
-        return $this->createErrorResponse('Invalid type');
-    }
-
-    private function validateRequest(Request $request) {
-        return Validator::make(
+        
+        $validator = Validator::make(
             $request->all(),
             [
                 'type' => 'required',
@@ -42,16 +24,29 @@ class MailController extends Controller
                 'username' => '',
             ]
         );
+
+        if ($validator->fails()) {
+            return response()->json(
+                [
+                    'success' => 400,
+                    'data' => $validator->errors(),
+                    'message' => 'Validation error'
+                ]
+            );
+        }  else {
+
+            if($request->type == $this->VERIFICATION_TYPE) {
+                return $this->handleVerificationType($request);
+            }
+    
+            if($request->type == $this->REGISTER_TYPE) {
+                return $this->handleRegisterType($request);
+            }
+
+        }
+
     }
 
-    private function createErrorResponse($message) {
-        return response()->json(
-            [
-                'success' => 400,
-                'message' => $message
-            ]
-        );
-    }
 
     private function handleVerificationType(Request $request) {
         $verification_code = rand(100000, 999999);

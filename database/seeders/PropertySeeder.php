@@ -19,7 +19,7 @@ class PropertySeeder extends Seeder
                 'description' => 'Description 1',
                 'bedrooms_number' => 2,
                 'bathrooms_number' => 1,
-                'image_url' => '["https://www.apartments.com/blog/sites/default/files/styles/x_large/public/image/2023-06/ParkLine-apartment-in-Miami-FL.jpg.webp?itok=lYDRCGzC","https://www.redfin.com/blog/wp-content/uploads/2022/09/spacejoy-xkJ2_THgKmk-unsplash.jpg"]',
+                'image_url' => '["https://www.apartments.com/blog/sites/default/files/styles/x_large/public/image/2023-06/ParkLine-apartment-in-Miami-FL.jpg.webp?itok=lYDRCGzC","https://media.admagazine.com/photos/63fcf219308b2455d685a20c/16:9/w_1920,c_limit/CAL%20TOTXO10.jpg"]',
                 'price' => 1000,
                 'isVerified' => true,
                 'isAvaible' => true,

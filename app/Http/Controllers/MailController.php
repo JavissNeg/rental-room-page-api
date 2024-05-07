@@ -10,7 +10,7 @@ use App\Mail\CompleteRegisterMail;
 
 class MailController extends Controller
 {
-    private $VERIFICATION_TYPE = 'verificationCode';
+    private $VERIFICATION_TYPE = 'verifyMail';
     private $REGISTER_TYPE = 'completeRegister';
     private $RENTAL_TYPE = 'completeRental';
 
@@ -21,14 +21,14 @@ class MailController extends Controller
             [
                 'type' => 'required',
                 'mail' => 'required|email',
-                'username' => '',
+                'subject' => '',
             ]
         );
 
         if ($validator->fails()) {
             return response()->json(
                 [
-                    'success' => 400,
+                    'status' => 400,
                     'data' => $validator->errors(),
                     'message' => 'Validation error'
                 ]
@@ -61,7 +61,7 @@ class MailController extends Controller
             
         return response()->json(
             [
-                'success' => 200,
+                'status' => 200,
                 'data' => $data,
                 'message' => 'Verification code sent to ' . $request->mail
             ]
@@ -69,17 +69,18 @@ class MailController extends Controller
     }
 
     private function handleRegisterType(Request $request) {
-        $username = $request->username;
+        $subject = $request->subject;
         
-        if($username) {
+        if($subject) {
             Mail::to($request->mail)
             ->send(
-                (new CompleteRegisterMail($request->username))
+                (new CompleteRegisterMail($request->subject))
             );
 
             return response()->json(
                 [
-                    'success' => 200,
+                    'status' => 200,
+                    'data' => [],
                     'message' => 'Complete register mail sent to ' . $request->mail
                 ]
             );
@@ -88,6 +89,7 @@ class MailController extends Controller
             return response()->json(
                 [
                     'status' => 400,
+                    'data' => [],
                     'message' => 'Username missing'
                 ]
             );

@@ -21,11 +21,13 @@ class MailController extends Controller
             [
                 'type' => 'required',
                 'mail' => 'required|email',
+                'verification_code' => '',
                 'subject' => '',
             ]
         );
 
         if ($validator->fails()) {
+
             return response()->json(
                 [
                     'status' => 400,
@@ -33,6 +35,7 @@ class MailController extends Controller
                     'message' => 'Validation error'
                 ]
             );
+
         }  else {
 
             if($request->type == $this->VERIFICATION_TYPE) {
@@ -49,20 +52,18 @@ class MailController extends Controller
 
 
     private function handleVerificationType(Request $request) {
-        $verification_code = rand(100000, 999999);
-        $data = [
-            'verification_code' => $verification_code
-        ];
-        
+    
         Mail::to($request->mail)
             ->send(
-                (new VerificationCodeMail($verification_code))
+                (new VerificationCodeMail($request->verification_code))
             );
             
         return response()->json(
             [
                 'status' => 200,
-                'data' => $data,
+                'data' => [
+                    'verification_code' => $request->verification_code,
+                ],
                 'message' => 'Verification code sent to ' . $request->mail
             ]
         );
@@ -73,9 +74,9 @@ class MailController extends Controller
         
         if($subject) {
             Mail::to($request->mail)
-            ->send(
-                (new CompleteRegisterMail($request->subject))
-            );
+                ->send(
+                    (new CompleteRegisterMail($request->subject))
+                );
 
             return response()->json(
                 [

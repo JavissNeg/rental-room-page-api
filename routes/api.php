@@ -16,6 +16,7 @@ use App\Http\Controllers\PropertyController;
 use App\Http\Controllers\RentalController;
 use App\Http\Controllers\MailController;
 use App\Http\Controllers\PaymentController;
+use App\Http\Controllers\VerificationCodeController;
 
 /*
 Route::get('/user', function (Request $request) {
@@ -86,3 +87,6 @@ Route::post('/payment', [PaymentController::class, 'purchase']);
 Route::get('/payment/check', [PaymentController::class, 'checkPayment']);
 
 Route::get('/evaluation/property/{property_id}', [EvaluationController::class, 'findByProperty']);
+
+Route::post('/verificationCode', [VerificationCodeController::class, 'store']);
+Route::get('/verificationCode/verify', [VerificationCodeController::class, 'verifyCode']);

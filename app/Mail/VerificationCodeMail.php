@@ -14,9 +14,11 @@ class VerificationCodeMail extends Mailable
     use Queueable, SerializesModels;
     
     protected $verificationCode;
+    protected $addressee;
 
-    public function __construct($verificationCode)
+    public function __construct($addressee, $verificationCode)
     {
+        $this->addressee = $addressee;
         $this->verificationCode = $verificationCode;
     }
 
@@ -37,7 +39,10 @@ class VerificationCodeMail extends Mailable
     {
         return new Content(
             view: 'mail.verificationcode',
-            with: ['verificationCode' => $this->verificationCode],
+            with: [
+                'addressee' => $this->addressee,
+                'verificationCode' => $this->verificationCode
+            ],
         );
     }
 

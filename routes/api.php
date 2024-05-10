@@ -80,8 +80,6 @@ Route::put('/rental/{id}', [RentalController::class, 'update']);
 Route::patch('/rental/{id}', [RentalController::class, 'updatePartial']);
 Route::delete('/rental/{id}', [RentalController::class, 'destroy']);
 
-Route::post('/mail', [MailController::class, 'store']);
-
 Route::get('/payment', [PaymentController::class, 'index']);
 Route::post('/payment', [PaymentController::class, 'purchase']);
 Route::get('/payment/check', [PaymentController::class, 'checkPayment']);
@@ -89,4 +87,6 @@ Route::get('/payment/check', [PaymentController::class, 'checkPayment']);
 Route::get('/evaluation/property/{property_id}', [EvaluationController::class, 'findByProperty']);
 
 Route::post('/verificationCode', [VerificationCodeController::class, 'store']);
-Route::get('/verificationCode/verify', [VerificationCodeController::class, 'verifyCode']);
+Route::get('/verificationCode/available/{mail}', [VerificationCodeController::class, 'isAvailable']);
+
+Route::post('/mail', [MailController::class, 'store']);

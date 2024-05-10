@@ -13,15 +13,15 @@ class CompleteRegisterMail extends Mailable
 {
     use Queueable, SerializesModels;
 
-    protected $username;
+    protected $addressee;
     protected $url;
 
     /**
      * Create a new message instance.
      */
-    public function __construct($username)
+    public function __construct($addressee)
     {
-        $this->username = $username;
+        $this->addressee = $addressee;
         $this->url = env('FRONTEND_URL');
     }
 
@@ -43,7 +43,7 @@ class CompleteRegisterMail extends Mailable
         return new Content(
             view: 'mail.completeregister',
             with: [
-                'username' => $this->username,
+                'username' => $this->addressee,
                 'url' => $this->url,
             ],
         );

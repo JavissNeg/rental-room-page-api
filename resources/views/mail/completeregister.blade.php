@@ -6,7 +6,7 @@
     padding: 30px 25px;
 ">
 
-    <h1 style="margin: 0;" >¡Bienvenido {{ $username }}!</h1>
+    <h1 style="margin: 0;" >¡Bienvenido {{ $addressee }}!</h1>
     <h4 style="">
         Gracias por registrarte en nuestra aplicación. <br>
         Ahora puedes disfrutar de todos los beneficios que te ofrecemos.

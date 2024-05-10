@@ -2,12 +2,9 @@
 
 namespace App\Http\Controllers;
 
-use App\Mail\VerificationCodeMail;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
 use App\Models\VerificationCode;
-use Illuminate\Support\Facades\Http;
-use Illuminate\Support\Facades\Mail;
 
 class VerificationCodeController extends Controller
 {
@@ -47,75 +44,39 @@ class VerificationCodeController extends Controller
 
             $response_verification_code = VerificationCode::create($request->all());
 
-            Mail::to($request->mail)
-            ->send(
-                (new VerificationCodeMail($request->code))
-            );
-
             return response()->json(
                 [
                     'status' => 201,
-                    'data' => [
-                        'verification_code' => $response_verification_code
-                    ],
+                    'data' => $response_verification_code,
                     'message' => 'Verification code created'
                 ]
             );
         
-
-            
-
-
         }
     }
 
-    public function verifyCode(Request $request) {
-            
-        $validator = Validator::make(
-            $request->all(), 
-            [
-                'mail' => 'required|email',
-                'code' => 'required|string|size:7'
-            ]
-        );
+    public function isAvailable($mail) {
+        $verification_code = VerificationCode::where('mail', $mail)
+            ->where('expires_at', '>', date('Y-m-d H:i:s'))
+            ->first();
 
-        if($validator->fails()) {
-                
+        if($verification_code) {
             return response()->json(
                 [
-                    'status' => 400,
-                    'data' => $validator->errors(),
-                    'message' => 'Validation error'
+                    'status' => 200,
+                    'data' => $verification_code,
+                    'message' => 'Verification code is valid'
                 ]
             );
-    
         } else {
-
-            $verification_code = VerificationCode::where('mail', $request->mail)
-                ->where('code', $request->code)
-                ->where('expires_at', '>', date('Y-m-d H:i:s'))
-                ->first();
-
-            if($verification_code) {
-
-                return response()->json(
-                    [
-                        'status' => 200,
-                        'data' => $verification_code,
-                        'message' => 'Verification code is valid'
-                    ]
-                );
-            } else {
-                return response()->json(
-                    [
-                        'status' => 404,
-                        'data' => null,
-                        'message' => 'Verification code is invalid'
-                    ]
-                );
-            }
+            return response()->json(
+                [
+                    'status' => 404,
+                    'data' => null,
+                    'message' => 'Verification code is invalid'
+                ]
+            );
         }
-
     }
 
 }

@@ -6,7 +6,7 @@
     margin: 0; 
     padding: 30px 25px;
 ">
-    <h1 style="margin: 0;">¡Hola! {{$addressee}}</h1>
+    <h1 style="margin: 0;">¡Hola {{$addressee}}!</h1>
     <h4>
         Para completar el proceso de verificación, necesitamos que ingreses el siguiente código en la aplicación.
     </h4>

@@ -43,7 +43,7 @@ class CompleteRegisterMail extends Mailable
         return new Content(
             view: 'mail.completeregister',
             with: [
-                'username' => $this->addressee,
+                'addressee' => $this->addressee,
                 'url' => $this->url,
             ],
         );

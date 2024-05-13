@@ -364,4 +364,133 @@ class PropertyController extends Controller
 
     }
 
+    public function findByName($name) {
+        $properties = Property::with('login')
+        ->with('address')
+        ->with('address.city')
+        ->with('address.city.state')
+        ->with('address.city.state.country')
+        ->with('property_type')
+        ->with('currency')
+        ->with('period')
+        ->where('name', 'like', '%' . $name . '%')
+        ->get();
+
+        if($properties) {
+            return response()->json(
+                [
+                    'status' => 200,
+                    'data' => $properties,
+                    'message' => 'Properties retrieved successfully'
+                ]
+            );
+        } else {
+            return response()->json(
+                [
+                    'status' => 404,
+                    'data' => null,
+                    'message' => 'Properties not found'
+                ]
+            );
+        }
+    }
+
+    public function findByState($state_id) {
+        $properties = Property::with('login')
+        ->with('address')
+        ->with('address.city')
+        ->with('address.city.state')
+        ->with('address.city.state.country')
+        ->with('property_type')
+        ->with('currency')
+        ->with('period')
+        ->whereHas('address.city.state', function ($query) use ($state_id) {
+            $query->where('state_id', $state_id);
+        })
+        ->get();
+
+        if($properties) {
+            return response()->json(
+                [
+                    'status' => 200,
+                    'data' => $properties,
+                    'message' => 'Properties retrieved successfully'
+                ]
+            );
+        } else {
+            return response()->json(
+                [
+                    'status' => 404,
+                    'data' => null,
+                    'message' => 'Properties not found'
+                ]
+            );
+        }
+    }
+
+    public function findByCity($city_id) {
+        $properties = Property::with('login')
+        ->with('address')
+        ->with('address.city')
+        ->with('address.city.state')
+        ->with('address.city.state.country')
+        ->with('property_type')
+        ->with('currency')
+        ->with('period')
+        ->whereHas('address.city', function ($query) use ($city_id) {
+            $query->where('city_id', $city_id);
+        })
+        ->get();
+
+        if($properties) {
+            return response()->json(
+                [
+                    'status' => 200,
+                    'data' => $properties,
+                    'message' => 'Properties retrieved successfully'
+                ]
+            );
+        } else {
+            return response()->json(
+                [
+                    'status' => 404,
+                    'data' => null,
+                    'message' => 'Properties not found'
+                ]
+            );
+        }
+    }
+
+    public function findByCountry($country_id) {
+        $properties = Property::with('login')
+        ->with('address')
+        ->with('address.city')
+        ->with('address.city.state')
+        ->with('address.city.state.country')
+        ->with('property_type')
+        ->with('currency')
+        ->with('period')
+        ->whereHas('address.city.state.country', function ($query) use ($country_id) {
+            $query->where('country_id', $country_id);
+        })
+        ->get();
+
+        if($properties) {
+            return response()->json(
+                [
+                    'status' => 200,
+                    'data' => $properties,
+                    'message' => 'Properties retrieved successfully'
+                ]
+            );
+        } else {
+            return response()->json(
+                [
+                    'status' => 404,
+                    'data' => null,
+                    'message' => 'Properties not found'
+                ]
+            );
+        }
+    }
 }
